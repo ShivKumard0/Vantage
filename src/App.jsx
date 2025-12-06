@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './components/Layout.css';
 import Layout from './components/Layout';
 import Toast from './components/Toast';
@@ -40,7 +40,7 @@ function App() {
             </Layout>
 
             {toast.show && <Toast message={toast.message} type={toast.type} />}
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 

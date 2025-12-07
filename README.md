@@ -1,54 +1,64 @@
-# Xeno Marketing Dashboard
+# Vantage - Intelligent Project Management Dashboard
 
-![Xeno Dashboard](https://via.placeholder.com/800x400?text=Xeno+Dashboard+Preview)
+![Vantage Dashboard](https://via.placeholder.com/800x400?text=Vantage+Dashboard+Preview)
 
-## 🚀 Overview
+## 🎯 Objective
 
-Xeno is a next-generation **Marketing Command Center** designed for modern retail marketers. It transforms complex data into actionable insights, enabling brands to manage loyalty programs, multi-channel campaigns, and automated customer journeys from a single, intelligent interface.
+**Vantage** is designed to be the central nervous system for modern project management offices (PMOs). It moves beyond simple task tracking to provide a holistic view of project health, governance, and resource optimization. Our goal is to empower Project Managers with actionable intelligence, not just raw data.
 
-This project demonstrates a premium, high-performance B2B SaaS UI built with **React** and **Vite**.
+## 🛑 The Problem (Pain Points)
+
+Modern project management is often plagued by:
+
+*   **Fragmented Data**: Critical information is scattered across emails, spreadsheets, and disparate tools (Jira, Asana, Excel), making it impossible to get a "single pane of glass" view.
+*   **Reactive Firefighting**: PMs often find out about risks (budget overruns, delays) when it's too late to act, leading to project failure.
+*   **Governance & Compliance Gaps**: Ensuring every project adheres to company standards (GDPR, Security, Budget) is a manual, error-prone process.
+*   **Resource Burnout**: Lack of visibility into team workloads leads to uneven distribution, causing burnout for some and underutilization for others.
+
+## ✅ The Solution
+
+Vantage addresses these challenges directly:
+
+1.  **Unified Command Center**: We aggregate data from multiple sources into a **single, real-time dashboard**. No more tab-switching or manual report generation.
+2.  **Proactive AI Insights**: Instead of just showing what happened, Vantage uses **Predictive AI** to forecast budget burn and delivery confidence, alerting you *before* a risk becomes a crisis.
+3.  **Automated Governance**: A dedicated **Governance Tracker** ensures every project passes critical stage gates (Security, Legal, Finance) before moving forward.
+4.  **Visual Resource Management**: **Team Snapshots** provide instant visibility into who is overloaded and who has capacity, enabling data-driven resource balancing.
 
 ## ✨ Key Features
 
-### 🧠 AI & Predictive Intelligence
-*   **Smart Recommendations Engine:** AI-driven "Next Best Action" panel that suggests high-impact tasks (e.g., "Launch Win-back Campaign") with predicted revenue outcomes.
-*   **Predictive Insights:** ROI forecasting and optimal send-time suggestions based on historical data.
-*   **GenAI Copy Assistant:** Integrated tool for generating high-converting campaign copy instantly.
+### 🛡️ Governance & Compliance Tracker
+*   **Stage-Gate Management**: Track projects through defined lifecycle stages.
+*   **Compliance Checklists**: Automated checks for GDPR, InfoSec, and Budget approvals.
+*   **Approval Workflows**: One-click "Request Approval" with status tracking (Pending, Approved, Rejected).
 
-### 🎮 Gamification & Motivation
-*   **Xeno Success Score:** A gamified progress tracker that motivates users with levels (e.g., "Marketing Superstar") and achievement badges.
+### 🧠 Predictive Intelligence
+*   **Smart Recommendations**: AI-driven suggestions (e.g., "Reallocate resources to Project X to meet deadline").
+*   **Risk Forecasting**: Probability and impact scoring for potential project risks.
+*   **Automated Status Reports**: Generate executive summaries in seconds.
 
-### 📊 Comprehensive Modules
-*   **Multi-Channel Campaigns:** Unified management for WhatsApp, SMS, Email, Push, and more.
-*   **Automated Journeys:** Visual status tracking of customer automation flows and their revenue impact.
-*   **CRM & Segmentation:** Deep customer profiling and segment health monitoring (e.g., tracking "At-Risk" groups).
-*   **Loyalty Management:** Real-time tracking of points liability and redemption rates.
+### 📊 Performance & Metrics
+*   **Real-Time KPI Grid**: Instant view of Budget Utilization, Active Projects, and Sprint Velocity.
+*   **Risk Register**: Centralized logging and mitigation tracking for all project risks.
+*   **Team Utilization Heatmaps**: Visual indicators of team health and workload distribution.
 
-### ⚡ Operational Excellence
-*   **Real-Time Activity Feed:** Live updates on campaign launches and system events.
-*   **Operational Alerts:** Proactive notifications for system health (e.g., API limits, low credits).
-*   **Collaboration Panel:** Built-in team chat and context-specific discussions.
+### 🎨 User Experience
+*   **Premium Aesthetic**: Designed with a "Warm Charcoal / Stone" theme for a professional, focused environment.
+*   **Customizable Layout**: Users can toggle widgets on/off to tailor the dashboard to their specific role.
+*   **Responsive Design**: Fully functional across desktop, tablet, and mobile devices.
 
 ## 🛠️ Tech Stack
 
-*   **Frontend:** React 18, Vite
-*   **Styling:** Modern CSS (Variables, Flexbox/Grid, Glassmorphism)
-*   **Routing:** React Router DOM
-*   **Icons:** Lucide React
-*   **Build Tool:** Vite
+*   **Frontend**: React 18, Vite
+*   **Styling**: Modern CSS (Variables, Flexbox/Grid, Glassmorphism)
+*   **Routing**: React Router DOM
+*   **State Management**: React Hooks (useState, useEffect)
 
 ## 🚀 Getting Started
 
-### Prerequisites
-*   Node.js (v14 or higher)
-*   npm or yarn
-
-### Installation
-
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/xeno-dashboard.git
-    cd xeno-dashboard
+    git clone https://github.com/ShivKumard0/Vantage.git
+    cd Vantage
     ```
 
 2.  **Install dependencies:**
@@ -66,11 +76,5 @@ This project demonstrates a premium, high-performance B2B SaaS UI built with **R
     npm run build
     ```
 
-## 📱 Responsive Design
-The dashboard is fully responsive, featuring a collapsible sidebar with a custom slider handle, ensuring a seamless experience across desktop and tablet devices.
-
-## 🔒 Security
-Includes a dedicated Security & Audit module with compliance badges (SOC2, GDPR) and detailed audit logs.
-
 ---
-*Built for the Xeno Product Manager Assignment.*
+*Built for the Advanced Project Management Assignment.*

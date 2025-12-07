@@ -11,7 +11,7 @@ function Header({ dateRange, onDateRangeChange, onMobileMenuToggle }) {
         e.preventDefault();
         if (searchQuery.trim()) {
             console.log(`Searching for: ${searchQuery}`);
-            alert(`🔍 Search Results for "${searchQuery}"\n\nFound in:\n• 3 Campaigns\n• 2 Customer Segments\n• 1 Journey\n• 145 Customers\n\nTop Result:\nCampaign: "Weekend Flash Sale"\nStatus: Live\nPerformance: 4.8% CTR`);
+            alert(`🔍 Search Results for "${searchQuery}"\n\nFound in:\n• 3 Projects\n• 5 Tasks\n• 1 Risk\n• 2 Team Members\n\nTop Result:\nProject: "Mobile App Redesign"\nStatus: In Progress\nPriority: High`);
             setSearchQuery('');
         }
     };
@@ -19,7 +19,7 @@ function Header({ dateRange, onDateRangeChange, onMobileMenuToggle }) {
     const handleAccountChange = (e) => {
         const selectedAccount = accounts.find(acc => acc.id === e.target.value);
         console.log(`Account switched to: ${selectedAccount?.name}`);
-        alert(`🏪 Switched to ${selectedAccount?.name}\n\nAccount Details:\n• Active Campaigns: 12\n• Total Customers: 45,230\n• Monthly Revenue: ₹8.5M\n• Last Activity: 5 mins ago\n\nLoading account data...`);
+        alert(`🏪 Switched to ${selectedAccount?.name}\n\nAccount Details:\n• Active Projects: 8\n• Total Team Size: 24\n• Monthly Budget: $120k\n• Last Activity: 5 mins ago\n\nLoading account data...`);
     };
 
     const handleDateRangeChange = (e) => {
@@ -32,7 +32,7 @@ function Header({ dateRange, onDateRangeChange, onMobileMenuToggle }) {
         console.log(`Profile action: ${action}`);
 
         const messages = {
-            profile: '👤 User Profile\n\nName: Admin User\nEmail: admin@xeno.com\nRole: Account Admin\nLast Login: Today at 9:45 AM\n\nEdit profile settings',
+            profile: '👤 User Profile\n\nName: Admin User\nEmail: admin@vantage.com\nRole: Project Manager\nLast Login: Today at 9:45 AM\n\nEdit profile settings',
             settings: '⚙️ Account Settings\n\nQuick Settings:\n• Notification preferences\n• Team management\n• Billing & subscription\n• API keys\n• Data export\n• Security settings',
             logout: '🚪 Logout\n\nAre you sure you want to logout?\n\nYour  work is automatically saved.\n\n(This is a demo - clicking OK would log you out)'
         };
@@ -89,7 +89,7 @@ function Header({ dateRange, onDateRangeChange, onMobileMenuToggle }) {
                         <input
                             type="text"
                             className="search-input"
-                            placeholder="Search campaigns, segments, customers..."
+                            placeholder="Search projects, tasks, team..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />

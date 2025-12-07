@@ -5,11 +5,12 @@ import QuickActions from '../components/QuickActions';
 import PredictiveInsights from '../components/PredictiveInsights';
 import SmartRecommendations from '../components/SmartRecommendations';
 import SuccessScore from '../components/SuccessScore';
-import CampaignPerformance from '../components/CampaignPerformance';
-import JourneySnapshot from '../components/JourneySnapshot';
-import SegmentSnapshot from '../components/SegmentSnapshot';
-import LoyaltyOverview from '../components/LoyaltyOverview';
+import ProjectPerformance from '../components/ProjectPerformance';
+import TaskSnapshot from '../components/TaskSnapshot';
+import TeamSnapshot from '../components/TeamSnapshot';
+import RiskOverview from '../components/RiskOverview';
 import ActivityFeed from '../components/ActivityFeed';
+import GovernanceTracker from '../components/GovernanceTracker';
 
 function Dashboard({ dateRange, showToast }) {
     const [isCustomizing, setIsCustomizing] = useState(false);
@@ -20,9 +21,10 @@ function Dashboard({ dateRange, showToast }) {
         kpi: true,
         predictive: true,
         actions: true,
-        campaigns: true,
+        projects: true,
         snapshots: true,
-        loyalty: true,
+        risks: true,
+        governance: true,
         activity: true
     });
 
@@ -67,16 +69,17 @@ function Dashboard({ dateRange, showToast }) {
             {visibleWidgets.predictive && <PredictiveInsights showToast={showToast} />}
             {visibleWidgets.actions && <QuickActions showToast={showToast} />}
 
-            {visibleWidgets.campaigns && <CampaignPerformance showToast={showToast} />}
+            {visibleWidgets.projects && <ProjectPerformance showToast={showToast} />}
 
             {visibleWidgets.snapshots && (
                 <div className="grid grid-2" style={{ marginTop: 'var(--spacing-2xl)' }}>
-                    <JourneySnapshot showToast={showToast} />
-                    <SegmentSnapshot showToast={showToast} />
+                    <TaskSnapshot showToast={showToast} />
+                    <TeamSnapshot showToast={showToast} />
                 </div>
             )}
 
-            {visibleWidgets.loyalty && <LoyaltyOverview showToast={showToast} />}
+            {visibleWidgets.risks && <RiskOverview showToast={showToast} />}
+            {visibleWidgets.governance && <GovernanceTracker showToast={showToast} />}
             {visibleWidgets.activity && <ActivityFeed showToast={showToast} />}
         </>
     );

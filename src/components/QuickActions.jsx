@@ -4,10 +4,10 @@ import { quickActions } from '../data/mockData';
 function QuickActions({ showToast }) {
     const handleActionClick = (action) => {
         const messages = {
-            'create-campaign': 'Opening Campaign Builder...',
-            'create-offer': 'Opening Offer Creation Wizard...',
-            'build-journey': 'Opening Journey Builder...',
-            'create-segment': 'Opening Segment Builder...'
+            'create-project': 'Opening Project Wizard...',
+            'add-task': 'Opening Task Creator...',
+            'log-risk': 'Opening Risk Logger...',
+            'add-member': 'Opening Invitation Dialog...'
         };
 
         showToast(messages[action.id], 'success');

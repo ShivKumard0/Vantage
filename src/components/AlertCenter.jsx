@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 // Mock alerts data
 const mockAlerts = [
-    { id: 'a1', type: 'critical', title: 'WhatsApp Budget Low', message: 'You have used 90% of your monthly budget.', time: '10m ago', action: 'Add Funds' },
-    { id: 'a2', type: 'warning', title: 'Deliverability Drop', message: 'Email open rates dropped by 5% in "Win-back" campaign.', time: '2h ago', action: 'View Report' },
-    { id: 'a3', type: 'info', title: 'New Integration', message: 'Shopify data sync completed successfully.', time: '5h ago', action: 'Dismiss' },
-    { id: 'a4', type: 'warning', title: 'Churn Risk Spike', message: '15 high-value customers moved to "At-risk" segment.', time: '1d ago', action: 'View Segment' },
+    { id: 'a1', type: 'critical', title: 'Project Budget Risk', message: 'Mobile App Redesign is at 95% of budget.', time: '10m ago', action: 'Review Budget' },
+    { id: 'a2', type: 'warning', title: 'Deadline Approaching', message: '3 tasks in "Website Revamp" are due tomorrow.', time: '2h ago', action: 'View Tasks' },
+    { id: 'a3', type: 'info', title: 'New Resource Added', message: 'Mike Chen joined the "Cloud Migration" team.', time: '5h ago', action: 'View Team' },
+    { id: 'a4', type: 'warning', title: 'Resource Overload', message: 'Sarah Johnson is allocated at 110% capacity.', time: '1d ago', action: 'Reassign Tasks' },
 ];
 
 function AlertCenter({ showToast, onClose }) {

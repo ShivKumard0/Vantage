@@ -11,16 +11,16 @@ const integrations = [
 ];
 
 const teamMembers = [
-    { id: 't1', name: 'Admin User', email: 'admin@xeno.com', role: 'Admin', status: 'active' },
-    { id: 't2', name: 'Marketing Manager', email: 'marketing@xeno.com', role: 'Editor', status: 'active' },
-    { id: 't3', name: 'Campaign Specialist', email: 'campaigns@xeno.com', role: 'Editor', status: 'active' },
+    { id: 't1', name: 'Admin User', email: 'admin@vantage.com', role: 'Admin', status: 'active' },
+    { id: 't2', name: 'Product Owner', email: 'pm@vantage.com', role: 'Editor', status: 'active' },
+    { id: 't3', name: 'Lead Developer', email: 'dev@vantage.com', role: 'Editor', status: 'active' },
 ];
 
 // Mock Audit Logs
 const auditLogs = [
     { id: 1, action: 'User Login', user: 'Admin User', ip: '192.168.1.1', time: 'Today, 9:45 AM' },
-    { id: 2, action: 'Campaign Created', user: 'Marketing Manager', ip: '192.168.1.4', time: 'Today, 10:30 AM' },
-    { id: 3, action: 'Exported Customer Data', user: 'Admin User', ip: '192.168.1.1', time: 'Yesterday, 4:15 PM' },
+    { id: 2, action: 'Project Created', user: 'Product Owner', ip: '192.168.1.4', time: 'Today, 10:30 AM' },
+    { id: 3, action: 'Exported Task Data', user: 'Admin User', ip: '192.168.1.1', time: 'Yesterday, 4:15 PM' },
     { id: 4, action: 'Changed API Key', user: 'Dev Ops', ip: '10.0.0.5', time: 'Yesterday, 2:00 PM' },
 ];
 
@@ -80,7 +80,7 @@ function Settings({ showToast }) {
                             <label className="text-sm font-semibold" style={{ display: 'block', marginBottom: 'var(--spacing-sm)' }}>
                                 Admin Email
                             </label>
-                            <input type="email" defaultValue="admin@xeno.com" />
+                            <input type="email" defaultValue="admin@vantage.com" />
                         </div>
 
                         <div style={{ marginBottom: 'var(--spacing-lg)' }}>
@@ -239,7 +239,7 @@ function Settings({ showToast }) {
                             <div className="text-3xl font-bold">₹9,999<span className="text-lg text-muted">/mo</span></div>
                         </div>
                         <div className="text-sm" style={{ marginBottom: 'var(--spacing-md)' }}>
-                            ✓ Unlimited campaigns • ✓ All channels • ✓ Advanced analytics • ✓ 5 team members
+                            ✓ Unlimited projects • ✓ All features • ✓ Advanced analytics • ✓ 10 team members
                         </div>
                         <button className="btn btn-primary" onClick={handleUpgradePlan}>
                             Upgrade Plan

@@ -4,27 +4,27 @@ import React from 'react';
 const recommendations = [
     {
         id: 'r1',
-        title: 'Target "At-risk" High Value Customers',
-        type: 'Retention',
-        impact: '₹45,000 revenue recovery',
+        title: 'Mitigate Critical Risk on Cloud Migration',
+        type: 'Risk',
+        impact: 'Prevent 2 week delay',
         urgency: 'high',
         icon: '🚨'
     },
     {
         id: 'r2',
-        title: 'Launch "Summer Sale" on WhatsApp',
-        type: 'Acquisition',
-        impact: '+12% conversion lift',
+        title: 'Reallocate Resources to Mobile App',
+        type: 'Resourcing',
+        impact: 'Accelerate delivery by 15%',
         urgency: 'medium',
-        icon: '💬'
+        icon: '👥'
     },
     {
         id: 'r3',
-        title: 'Win-back "Inactive" Segment',
-        type: 'Win-back',
-        impact: 'Re-engage 150+ users',
+        title: 'Schedule Sprint Retrospective',
+        type: 'Process',
+        impact: 'Improve team velocity',
         urgency: 'low',
-        icon: '🎣'
+        icon: '📅'
     }
 ];
 

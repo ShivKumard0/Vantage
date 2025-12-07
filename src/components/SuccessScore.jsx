@@ -9,8 +9,8 @@ function SuccessScore() {
         }}>
             <div className="flex-between" style={{ alignItems: 'flex-start' }}>
                 <div>
-                    <h3 className="text-lg font-semibold" style={{ marginBottom: 'var(--spacing-xs)' }}>Xeno Success Score</h3>
-                    <div className="text-sm" style={{ opacity: 0.9 }}>Level: Marketing Superstar 🌟</div>
+                    <h3 className="text-lg font-semibold" style={{ marginBottom: 'var(--spacing-xs)' }}>Vantage Productivity Score</h3>
+                    <div className="text-sm" style={{ opacity: 0.9 }}>Level: Project Master 🌟</div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
                     <div className="text-3xl font-bold">850</div>
@@ -33,7 +33,7 @@ function SuccessScore() {
                     🚀 First Launch
                 </div>
                 <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', border: '1px solid rgba(255,255,255,0.3)' }}>
-                    🎯 100 Conversions
+                    🎯 50 Tasks Completed
                 </div>
                 <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', border: '1px solid rgba(255,255,255,0.3)' }}>
                     ⚡ Fast Responder

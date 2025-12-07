@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 const mockComments = [
-    { id: 'c1', user: 'Marketing Manager', avatar: 'MM', text: 'Should we increase the budget for this?', time: '2h ago' },
+    { id: 'c1', user: 'Product Owner', avatar: 'PO', text: 'Should we increase the budget for this?', time: '2h ago' },
     { id: 'c2', user: 'Admin User', avatar: 'AU', text: 'Agreed, let\'s double it for the weekend.', time: '1h ago' },
 ];
 
 const mockActivity = [
     { id: 'a1', user: 'Admin User', action: 'changed status to Active', time: '1h ago' },
-    { id: 'a2', user: 'Marketing Manager', action: 'updated email copy', time: '3h ago' },
+    { id: 'a2', user: 'Product Owner', action: 'updated email copy', time: '3h ago' },
 ];
 
 function CollaborationPanel({ showToast, onClose }) {

@@ -3,15 +3,15 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './components/Layout.css';
 import Layout from './components/Layout';
 import Toast from './components/Toast';
-import OnboardingWizard from './components/OnboardingWizard';
+
 
 // Pages
 import Dashboard from './pages/Dashboard';
-import Campaigns from './pages/Campaigns';
-import Journeys from './pages/Journeys';
-import Segments from './pages/Segments';
-import Loyalty from './pages/Loyalty';
-import Analytics from './pages/Analytics';
+import Projects from './pages/Projects';
+import Tasks from './pages/Tasks';
+import Team from './pages/Team';
+import Risks from './pages/Risks';
+import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 
 function App() {
@@ -26,15 +26,15 @@ function App() {
     return (
         <BrowserRouter>
             <Layout dateRange={dateRange} onDateRangeChange={setDateRange} showToast={showToast}>
-                <OnboardingWizard showToast={showToast} />
+
                 <Routes>
                     <Route path="/" element={<Navigate to="/dashboard" replace />} />
                     <Route path="/dashboard" element={<Dashboard dateRange={dateRange} showToast={showToast} />} />
-                    <Route path="/campaigns" element={<Campaigns showToast={showToast} />} />
-                    <Route path="/journeys" element={<Journeys showToast={showToast} />} />
-                    <Route path="/segments" element={<Segments showToast={showToast} />} />
-                    <Route path="/loyalty" element={<Loyalty showToast={showToast} />} />
-                    <Route path="/analytics" element={<Analytics showToast={showToast} dateRange={dateRange} />} />
+                    <Route path="/projects" element={<Projects showToast={showToast} />} />
+                    <Route path="/tasks" element={<Tasks showToast={showToast} />} />
+                    <Route path="/team" element={<Team showToast={showToast} />} />
+                    <Route path="/risks" element={<Risks showToast={showToast} />} />
+                    <Route path="/reports" element={<Reports showToast={showToast} dateRange={dateRange} />} />
                     <Route path="/settings" element={<Settings showToast={showToast} />} />
                 </Routes>
             </Layout>

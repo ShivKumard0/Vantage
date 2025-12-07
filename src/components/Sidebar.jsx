@@ -6,11 +6,11 @@ function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
 
     const navigation = [
         { icon: '📊', label: 'Dashboard', path: '/dashboard' },
-        { icon: '📢', label: 'Campaigns', path: '/campaigns' },
-        { icon: '🛤️', label: 'Journeys / Automation', path: '/journeys' },
-        { icon: '👥', label: 'Segments / CRM', path: '/segments' },
-        { icon: '🎁', label: 'Loyalty & Offers', path: '/loyalty' },
-        { icon: '📈', label: 'Analytics & Reports', path: '/analytics' },
+        { icon: '🚀', label: 'Projects', path: '/projects' },
+        { icon: '📋', label: 'Tasks & Board', path: '/tasks' },
+        { icon: '👥', label: 'Team & Resources', path: '/team' },
+        { icon: '⚠️', label: 'Risks & Issues', path: '/risks' },
+        { icon: '📈', label: 'Reports & Analytics', path: '/reports' },
         { icon: '⚙️', label: 'Settings', path: '/settings' },
     ];
 
@@ -28,8 +28,8 @@ function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
             <div style={{ overflowX: 'hidden', width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <div className="sidebar-header">
                     <div className="sidebar-logo">
-                        <div className="sidebar-logo-icon">X</div>
-                        <span className="sidebar-logo-text">Xeno</span>
+                        <div className="sidebar-logo-icon">V</div>
+                        <span className="sidebar-logo-text">Vantage</span>
                     </div>
                     <button className="sidebar-toggle" onClick={onToggle} title="Toggle sidebar">
                         {collapsed ? '→' : '←'}

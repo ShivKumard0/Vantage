@@ -6,7 +6,10 @@ const predictiveData = {
         current: 125000,
         predicted: 148000,
         uplift: 18.4,
-        confidence: 92
+        confidence: 92,
+        label: 'Budget Forecast',
+        metric: 'Predicted Spend',
+        unit: '$'
     },
     optimalSendTimes: [
         { day: 'Mon', time: '10:00 AM', score: 85 },
@@ -29,14 +32,14 @@ function PredictiveInsights({ showToast }) {
         setIsGenerating(true);
         // Simulate API call
         setTimeout(() => {
-            setGeneratedCopy(`🚀 **Exclusive Offer just for you!**\n\nHey there! We noticed you've been eyeing our summer collection. Here's a special 20% OFF code: **SUMMER20**.\n\nShop now before it's gone! 🛍️`);
+            setGeneratedCopy(`🚀 **Project Status Report**\n\n**Summary:** The Mobile App Redesign is on track. Key milestones achieved this week include the completion of the Home Screen UI.\n\n**Risks:** None currently. Budget utilization is at 65%.\n\n**Next Steps:** Begin API integration tests.`);
             setIsGenerating(false);
-            showToast('AI Copy generated successfully!', 'success');
+            showToast('AI Status Report generated successfully!', 'success');
         }, 1500);
     };
 
     const handleApplyCopy = () => {
-        showToast('Copy applied to clipboard/campaign!', 'success');
+        showToast('Report copied to clipboard!', 'success');
         setShowGenAIModal(false);
         setGenAIPrompt('');
         setGeneratedCopy('');
@@ -49,7 +52,7 @@ function PredictiveInsights({ showToast }) {
                 <div className="flex-between" style={{ marginBottom: 'var(--spacing-lg)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
                         <span style={{ fontSize: '1.5rem' }}>🔮</span>
-                        <h3 className="text-lg font-semibold">ROI Forecast</h3>
+                        <h3 className="text-lg font-semibold">Delivery Confidence</h3>
                     </div>
                     <span className="badge badge-success" style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#34d399' }}>
                         {predictiveData.roiForecast.confidence}% Confidence
@@ -58,10 +61,10 @@ function PredictiveInsights({ showToast }) {
 
                 <div className="grid grid-2" style={{ gap: 'var(--spacing-lg)' }}>
                     <div>
-                        <div className="text-sm" style={{ color: '#a5b4fc', marginBottom: 'var(--spacing-xs)' }}>Predicted Revenue</div>
-                        <div className="text-3xl font-bold">₹{(predictiveData.roiForecast.predicted / 1000).toFixed(0)}K</div>
+                        <div className="text-sm" style={{ color: '#a5b4fc', marginBottom: 'var(--spacing-xs)' }}>Predicted Budget</div>
+                        <div className="text-3xl font-bold">${(predictiveData.roiForecast.predicted / 1000).toFixed(0)}K</div>
                         <div className="text-sm" style={{ color: '#34d399', marginTop: 'var(--spacing-xs)' }}>
-                            +{predictiveData.roiForecast.uplift}% uplift
+                            On Track
                         </div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'end', height: '60px', gap: '4px' }}>
@@ -86,15 +89,15 @@ function PredictiveInsights({ showToast }) {
                         style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)', border: 'none' }}
                         onClick={() => setShowGenAIModal(true)}
                     >
-                        ✨ GenAI Copy
+                        ✨ GenAI Report
                     </button>
                 </div>
 
                 <div style={{ marginBottom: 'var(--spacing-md)' }}>
-                    <div className="text-sm text-muted" style={{ marginBottom: 'var(--spacing-sm)' }}>Optimal Send Time (Next 24h)</div>
+                    <div className="text-sm text-muted" style={{ marginBottom: 'var(--spacing-sm)' }}>Peak Productivity (Next 24h)</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-md)' }}>
                         <div className="text-2xl font-bold">{predictiveData.optimalSendTimes[1].time}</div>
-                        <span className="badge badge-success">High Engagement</span>
+                        <span className="badge badge-success">High Focus</span>
                     </div>
                 </div>
 
@@ -105,7 +108,7 @@ function PredictiveInsights({ showToast }) {
                     fontSize: 'var(--font-size-sm)'
                 }}>
                     <span style={{ marginRight: 'var(--spacing-sm)' }}>💡</span>
-                    <strong>Insight:</strong> Tuesday afternoons have 22% higher open rates for your "Loyal" segment.
+                    <strong>Insight:</strong> Tuesday afternoons are 22% more productive for the "DevOps" team.
                 </div>
             </div>
 
@@ -118,18 +121,18 @@ function PredictiveInsights({ showToast }) {
                 }} onClick={() => setShowGenAIModal(false)}>
                     <div className="card" style={{ width: '90%', maxWidth: '600px' }} onClick={e => e.stopPropagation()}>
                         <div className="flex-between" style={{ marginBottom: 'var(--spacing-lg)' }}>
-                            <h3 className="text-xl font-semibold">✨ GenAI Copy Assistant</h3>
+                            <h3 className="text-xl font-semibold">✨ GenAI Status Report</h3>
                             <button onClick={() => setShowGenAIModal(false)} style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: 'var(--color-text-muted)' }}>×</button>
                         </div>
 
                         <div style={{ marginBottom: 'var(--spacing-lg)' }}>
                             <label className="text-sm font-semibold" style={{ display: 'block', marginBottom: 'var(--spacing-sm)' }}>
-                                What is this campaign about?
+                                What should this report cover?
                             </label>
                             <textarea
                                 className="input"
                                 rows="3"
-                                placeholder="e.g., Summer sale for VIP customers, 20% off..."
+                                placeholder="e.g., Weekly status for Mobile App Redesign, highlight completed tasks..."
                                 value={genAIPrompt}
                                 onChange={(e) => setGenAIPrompt(e.target.value)}
                                 style={{ width: '100%', padding: 'var(--spacing-md)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', background: 'var(--color-bg-secondary)', color: 'var(--color-text-primary)' }}
@@ -155,7 +158,7 @@ function PredictiveInsights({ showToast }) {
                                 </button>
                             ) : (
                                 <button className="btn btn-primary" onClick={handleApplyCopy}>
-                                    Apply to Campaign
+                                    Copy to Clipboard
                                 </button>
                             )}
                         </div>

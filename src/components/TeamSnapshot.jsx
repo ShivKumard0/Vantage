@@ -1,45 +1,44 @@
 import React, { useState } from 'react';
-import { customerSegments } from '../data/mockData';
+import { teamMembers } from '../data/mockData';
 
-function SegmentSnapshot({ showToast }) {
-    const [segments, setSegments] = useState(customerSegments);
-    const [expandedSegment, setExpandedSegment] = useState(null);
+function TeamSnapshot({ showToast }) {
+    const [members, setMembers] = useState(teamMembers);
+    const [expandedMember, setExpandedMember] = useState(null);
 
-    const handleCreateSegment = () => {
-        showToast('Opening Segment Builder...', 'info');
+    const handleAddMember = () => {
+        showToast('Opening Invitation Dialog...', 'info');
     };
 
-    const handleViewSegment = (e, segment) => {
-        e.stopPropagation();
-        setExpandedSegment(expandedSegment === segment.id ? null : segment.id);
+    const handleMemberClick = (member) => {
+        setExpandedMember(expandedMember === member.id ? null : member.id);
     };
 
-    const handleTargetSegment = (e, segment) => {
+    const handleAssignProject = (e, member) => {
         e.stopPropagation();
-        showToast(`Creating campaign for ${segment.size.toLocaleString()} customers`, 'success');
+        showToast(`Assigning project to ${member.name}`, 'info');
     };
 
     return (
         <div className="card" style={{ height: 'fit-content' }}>
             <div className="flex-between" style={{ marginBottom: 'var(--spacing-xl)' }}>
-                <h2 className="text-xl font-semibold">Customer Segments</h2>
+                <h2 className="text-xl font-semibold">Team Resources</h2>
                 <button
                     className="btn btn-sm btn-primary"
-                    onClick={handleCreateSegment}
+                    onClick={handleAddMember}
                 >
-                    + Create Segment
+                    + Add Member
                 </button>
             </div>
 
             <div className="flex-col" style={{ gap: 'var(--spacing-lg)' }}>
-                {segments.map((segment) => (
+                {members.map((member) => (
                     <div
-                        key={segment.id}
+                        key={member.id}
                         className="card"
-                        onClick={(e) => handleViewSegment(e, segment)}
+                        onClick={() => handleMemberClick(member)}
                         style={{
                             background: 'var(--color-bg-secondary)',
-                            border: `1px solid ${expandedSegment === segment.id ? 'var(--color-primary)' : 'var(--color-border)'}`,
+                            border: `1px solid ${expandedMember === member.id ? 'var(--color-primary)' : 'var(--color-border)'}`,
                             cursor: 'pointer',
                             transition: 'all var(--transition-base)',
                             padding: 'var(--spacing-lg)',
@@ -47,14 +46,13 @@ function SegmentSnapshot({ showToast }) {
                     >
                         <div className="flex-between" style={{ marginBottom: 'var(--spacing-md)', flexWrap: 'wrap', gap: 'var(--spacing-md)' }}>
                             <div>
-                                <h3 className="text-md font-semibold">{segment.name}</h3>
+                                <h3 className="text-md font-semibold">{member.name}</h3>
                                 <div className="text-sm text-secondary" style={{ marginTop: 'var(--spacing-xs)' }}>
-                                    {segment.size.toLocaleString()} customers
+                                    {member.role}
                                 </div>
                             </div>
-                            <div className={`trend trend-${segment.trend === 'growing' ? 'up' : segment.trend === 'shrinking' ? 'down' : 'neutral'}`}>
-                                <span>{segment.trend === 'growing' ? '↑' : segment.trend === 'shrinking' ? '↓' : '→'}</span>
-                                <span>{segment.trendValue}</span>
+                            <div className={`badge ${member.status === 'Overloaded' ? 'badge-error' : member.status === 'Available' ? 'badge-success' : 'badge-neutral'}`}>
+                                {member.status}
                             </div>
                         </div>
 
@@ -67,26 +65,25 @@ function SegmentSnapshot({ showToast }) {
                             flexWrap: 'wrap'
                         }}>
                             <div style={{ flex: 1, minWidth: '120px' }}>
-                                <div className="text-xs text-muted" style={{ marginBottom: 'var(--spacing-xs)' }}>Revenue Contribution</div>
-                                <div className="text-xl font-bold">{segment.revenueContribution}%</div>
+                                <div className="text-xs text-muted" style={{ marginBottom: 'var(--spacing-xs)' }}>Utilization</div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <div style={{ flex: 1, height: '6px', background: '#eee', borderRadius: '3px', overflow: 'hidden' }}>
+                                        <div style={{ width: `${member.utilization}%`, height: '100%', background: member.utilization > 90 ? 'var(--color-error)' : 'var(--color-primary)' }}></div>
+                                    </div>
+                                    <span className="text-sm font-bold">{member.utilization}%</span>
+                                </div>
                             </div>
                             <div style={{ display: 'flex', gap: 'var(--spacing-sm)' }}>
                                 <button
-                                    className="btn btn-sm btn-secondary"
-                                    onClick={(e) => handleViewSegment(e, segment)}
-                                >
-                                    View Segment
-                                </button>
-                                <button
                                     className="btn btn-sm btn-primary"
-                                    onClick={(e) => handleTargetSegment(e, segment)}
+                                    onClick={(e) => handleAssignProject(e, member)}
                                 >
-                                    Target Now
+                                    Assign
                                 </button>
                             </div>
                         </div>
 
-                        {expandedSegment === segment.id && (
+                        {expandedMember === member.id && (
                             <div
                                 style={{
                                     marginTop: 'var(--spacing-lg)',
@@ -96,41 +93,31 @@ function SegmentSnapshot({ showToast }) {
                                 }}
                             >
                                 <div className="text-xs text-muted" style={{ marginBottom: 'var(--spacing-md)' }}>
-                                    Segment Characteristics
+                                    Skills & Expertise
                                 </div>
                                 <div style={{ display: 'flex', gap: 'var(--spacing-sm)', flexWrap: 'wrap', marginBottom: 'var(--spacing-lg)' }}>
-                                    <div className="badge badge-neutral">High Engagement</div>
-                                    <div className="badge badge-neutral">Email Responsive</div>
-                                    <div className="badge badge-neutral">AOV: ₹2,450</div>
-                                    <div className="badge badge-neutral">Active: 30 days</div>
+                                    {member.skills.map((skill, index) => (
+                                        <div key={index} className="badge badge-neutral">{skill}</div>
+                                    ))}
                                 </div>
                                 <div style={{ display: 'flex', gap: 'var(--spacing-sm)', flexWrap: 'wrap' }}>
                                     <button
                                         className="btn btn-sm btn-secondary"
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            showToast('Editing segment criteria...', 'info');
+                                            showToast('Viewing profile...', 'info');
                                         }}
                                     >
-                                        ✏️ Edit Criteria
+                                        👤 View Profile
                                     </button>
                                     <button
                                         className="btn btn-sm btn-secondary"
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            showToast('Exporting customer list...', 'info');
+                                            showToast('Checking schedule...', 'info');
                                         }}
                                     >
-                                        📥 Export List
-                                    </button>
-                                    <button
-                                        className="btn btn-sm btn-secondary"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            showToast('Viewing segment analytics...', 'info');
-                                        }}
-                                    >
-                                        📊 View Analytics
+                                        📅 View Schedule
                                     </button>
                                 </div>
                             </div>
@@ -142,4 +129,4 @@ function SegmentSnapshot({ showToast }) {
     );
 }
 
-export default SegmentSnapshot;
+export default TeamSnapshot;

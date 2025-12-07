@@ -13,10 +13,10 @@ function HeroSection({ dateRange }) {
         <div className="hero-section" style={{ marginBottom: 'var(--spacing-2xl)' }}>
             <div style={{ marginBottom: 'var(--spacing-md)' }}>
                 <h1 className="text-3xl font-bold" style={{ marginBottom: 'var(--spacing-xs)' }}>
-                    Marketing Overview
+                    Portfolio Overview
                 </h1>
                 <p className="text-secondary" style={{ fontSize: 'var(--font-size-lg)' }}>
-                    What's happening in your account right now
+                    Track your projects and team performance
                 </p>
             </div>
 

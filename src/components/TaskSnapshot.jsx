@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { tasksList } from '../data/mockData';
+import { useSimulation } from '../context/SimulationContext';
 
 function TaskSnapshot({ showToast }) {
-    const [tasks, setTasks] = useState(tasksList);
+    const { tasks, toggleTask } = useSimulation();
     const [expandedTask, setExpandedTask] = useState(null);
 
     const handleCreateTask = () => {
@@ -15,17 +15,15 @@ function TaskSnapshot({ showToast }) {
 
     const toggleTaskStatus = (e, taskId) => {
         e.stopPropagation();
-        setTasks(tasks.map(t => {
-            if (t.id === taskId) {
-                const newStatus = t.status === 'Done' ? 'In Progress' : 'Done';
-                showToast(
-                    newStatus === 'Done' ? 'Task completed' : 'Task reopened',
-                    newStatus === 'Done' ? 'success' : 'info'
-                );
-                return { ...t, status: newStatus };
-            }
-            return t;
-        }));
+        toggleTask(taskId);
+        const task = tasks.find(t => t.id === taskId);
+        if (task) {
+            const newStatus = task.status === 'Done' ? 'In Progress' : 'Done';
+            showToast(
+                newStatus === 'Done' ? 'Task completed' : 'Task reopened',
+                newStatus === 'Done' ? 'success' : 'info'
+            );
+        }
     };
 
     return (

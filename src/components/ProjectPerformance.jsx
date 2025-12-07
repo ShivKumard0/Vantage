@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { projectsList } from '../data/mockData';
+import { useSimulation } from '../context/SimulationContext';
 
 function ProjectPerformance() {
+    const { projects } = useSimulation();
     const [activeTab, setActiveTab] = useState('all');
 
     const handleProjectAction = (projectName, action) => {
@@ -45,7 +46,7 @@ function ProjectPerformance() {
                             </tr>
                         </thead>
                         <tbody>
-                            {projectsList.map((project) => (
+                            {projects.map((project) => (
                                 <tr
                                     key={project.id}
                                     style={{

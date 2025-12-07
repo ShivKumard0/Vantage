@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-
-// Mock alerts data
-const mockAlerts = [
-    { id: 'a1', type: 'critical', title: 'Project Budget Risk', message: 'Mobile App Redesign is at 95% of budget.', time: '10m ago', action: 'Review Budget' },
-    { id: 'a2', type: 'warning', title: 'Deadline Approaching', message: '3 tasks in "Website Revamp" are due tomorrow.', time: '2h ago', action: 'View Tasks' },
-    { id: 'a3', type: 'info', title: 'New Resource Added', message: 'Mike Chen joined the "Cloud Migration" team.', time: '5h ago', action: 'View Team' },
-    { id: 'a4', type: 'warning', title: 'Resource Overload', message: 'Sarah Johnson is allocated at 110% capacity.', time: '1d ago', action: 'Reassign Tasks' },
-];
+import { useSimulation } from '../context/SimulationContext';
 
 function AlertCenter({ showToast, onClose }) {
+    const { activities } = useSimulation();
     const [filter, setFilter] = useState('all');
+
+    // Transform activities to alerts format
+    const alerts = activities.map(a => ({
+        id: a.id,
+        type: a.type === 'success' ? 'info' : a.type, // Map success to info for alerts
+        title: a.type.charAt(0).toUpperCase() + a.type.slice(1) + ' Update',
+        message: a.message,
+        time: a.timestamp,
+        action: 'View Details'
+    }));
 
     const handleAction = (alert) => {
         showToast(`Action taken: ${alert.action}`, 'success');
@@ -24,7 +28,7 @@ function AlertCenter({ showToast, onClose }) {
         }
     };
 
-    const filteredAlerts = filter === 'all' ? mockAlerts : mockAlerts.filter(a => a.type === filter);
+    const filteredAlerts = filter === 'all' ? alerts : alerts.filter(a => a.type === filter);
 
     return (
         <div className="card" style={{

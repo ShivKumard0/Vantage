@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { activityFeed } from '../data/mockData';
+import { useSimulation } from '../context/SimulationContext';
 
 function ActivityFeed() {
+    const { activities } = useSimulation();
     const [filter, setFilter] = useState('all');
 
     const getIconColor = (type) => {
@@ -60,7 +61,7 @@ function ActivityFeed() {
 
             <div className="card">
                 <div className="flex-col gap-md">
-                    {activityFeed.map((activity) => (
+                    {activities.map((activity) => (
                         <div
                             key={activity.id}
                             className="flex gap-md"

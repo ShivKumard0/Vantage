@@ -1,7 +1,9 @@
 import React from 'react';
-import { risksList } from '../data/mockData';
+import { useSimulation } from '../context/SimulationContext';
 
 function RiskOverview({ showToast }) {
+    const { risks } = useSimulation();
+
     const handleLogRisk = () => {
         showToast('Opening Risk Logger...', 'info');
     };
@@ -35,7 +37,7 @@ function RiskOverview({ showToast }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {risksList.map((risk) => (
+                            {risks.map((risk) => (
                                 <tr
                                     key={risk.id}
                                     style={{

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { teamMembers } from '../data/mockData';
+import { useSimulation } from '../context/SimulationContext';
 
 function TeamSnapshot({ showToast }) {
-    const [members, setMembers] = useState(teamMembers);
+    const { team: members } = useSimulation();
     const [expandedMember, setExpandedMember] = useState(null);
 
     const handleAddMember = () => {

@@ -1,6 +1,6 @@
 # Vantage - Intelligent Project Management Dashboard
 
-[Vantage Dashboard]([[https://via.placeholder.com/800x400?text=Vantage+Dashboard+Preview](https://vantage-sigma.vercel.app/)](https://vantage-sigma.vercel.app/))
+[Vantage Dashboard](https://vantage-sigma.vercel.app/dashboard)
 
 ## 🎯 Objective
 
